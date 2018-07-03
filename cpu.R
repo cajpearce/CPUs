@@ -34,5 +34,7 @@ good = cpu %>% filter(#Difference <
 
 
 
-good
+good %>%
+  mutate(Price = scales::dollar(round(Price)),
+         Predict = scales::dollar(round(Predict)))
 write.csv(good, "good.csv")
